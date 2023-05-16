@@ -14,7 +14,7 @@
 2. Add the dependency you need inside `pom.xml`.
     ```xml
     <dependency>
-        <groupId>contoh.gratis</groupId>
+        <groupId>gratis.contoh</groupId>
         <artifactId>mapper</artifactId>
         <version>1.0-SNAPSHOT</version>
         <scope>compile</scope>
