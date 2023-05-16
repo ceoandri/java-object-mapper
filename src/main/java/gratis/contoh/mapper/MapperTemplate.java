@@ -35,8 +35,10 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 	
 	private void constructFieldMapper(FieldMapper... fieldMapper) {
 		
+		this.fields = new ArrayList<>();
+		
 		for (int i = 0; i < fieldMapper.length; i++) {
-			fields.add(fieldMapper[i]);
+			this.fields.add(fieldMapper[i]);
 		}
 		
 	}
