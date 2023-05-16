@@ -47,7 +47,7 @@ You can create more bean as much as you need
 public class MapperSampleController {
 	
     @Autowired
-    private ObjectMapper<ModelA, ModelAResponse> mapper;
+    private ObjectMapper<ModelA, ModelB> mapper;
 
     @PostMapping("")
     public ResponseEntity<ModelB> mapperTest(@RequestBody @Valid ModelA model) {
