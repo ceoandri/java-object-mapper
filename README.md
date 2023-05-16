@@ -50,10 +50,7 @@ public class MapperSampleController {
     private ObjectMapper<ModelA, ModelAResponse> mapper;
 
     @PostMapping("")
-    public ResponseEntity<ModelB> mapperTest(
-        @RequestBody @Valid ModelA model,
-        HttpServletRequest httpServletRequest) {
-
+    public ResponseEntity<ModelB> mapperTest(@RequestBody @Valid ModelA model) {
         return ResponseEntity.ok(mapper.convert(model));
     }
 	
