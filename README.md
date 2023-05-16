@@ -12,14 +12,14 @@
     </repositories>
     ```
 2. Add the dependency you need inside `pom.xml`.
-  ```xml
+    ```xml
     <dependency>
         <groupId>contoh.gratis</groupId>
         <artifactId>mapper</artifactId>
         <version>1.0-SNAPSHOT</version>
         <scope>compile</scope>
     </dependency>
-  ```
+    ```
 3. Run `mvn clean install` inside your project directory
 
 ## Object Mapper Configuration Code
