@@ -11,7 +11,6 @@
         </repository>
     </repositories>
     ```
-    Notice the repository `id` is the same as server `id` in `setting.xml`
 2. Add the dependency you need inside `pom.xml`.
   ```xml
     <dependency>
