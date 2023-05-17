@@ -23,7 +23,7 @@
 </dependency>
 ```
 3. Run `mvn clean install` inside your project directory
-
+ 
 ## Object Mapper Configuration Code
 ```
 @Configuration
