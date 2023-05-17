@@ -7,7 +7,7 @@
         <repository>
             <id>repo-contoh-gratis</id>
             <name>repo-contoh-gratis</name>
-            <url>http://repo.contoh.gratis/repository/maven-snapshots/</url>
+            <url>http://repo.contoh.gratis/repository/maven-public/</url>
         </repository>
     </repositories>
     ```
