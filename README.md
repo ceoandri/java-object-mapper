@@ -1,5 +1,8 @@
 # java-object-mapper
 
+## Prerequisite
+- Java 11 or later
+
 ## How to use this library for your maven project
 1. Add this repository setting in your `pom.xml`
     ```xml
