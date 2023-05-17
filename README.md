@@ -16,7 +16,7 @@
     <dependency>
         <groupId>gratis.contoh</groupId>
         <artifactId>mapper</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>compile</scope>
     </dependency>
     ```
