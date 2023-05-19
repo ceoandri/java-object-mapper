@@ -23,8 +23,32 @@
 </dependency>
 ```
 3. Run `mvn clean install` inside your project directory
+
+## Simple Java Code
+```
+public class App {
+    public static void main(String[] args) {
+        ObjectMapper<ModelA, ModelB> mapper = new MapperTemplate<>(
+            ModelA.class, 
+            ModelB.class,
+            new FieldMapper("field1From", "field1To"),
+            new FieldMapper("field2From", "field2To"));
+            
+        ModelA modelA = new Model();
+        ModelB modelB = mapper.convert(model);
+    }
+}
+
+class ModelA {
+    // ...properties
+}
+
+class ModelB {
+    // ...properties
+}
+```
  
-## Object Mapper Configuration Code
+## Object Mapper Configuration Code (Springboot)
 ```
 @Configuration
 public class AutoMapperConfiguration {
@@ -42,7 +66,7 @@ public class AutoMapperConfiguration {
 ```
 You can create more bean as much as you need
 
-## Object Mapper Usage Code
+## Object Mapper Usage Code (Springboot)
 ```
 @RestController
 @RequestMapping("/mapper")
