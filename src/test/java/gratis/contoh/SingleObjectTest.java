@@ -108,8 +108,6 @@ public class SingleObjectTest
     							.field5(LocalDateTime.now())
     							.build();
     	Test1ModelB modelB = mapper.convert(modelA);
-    	System.out.println(modelB.getField5().toString() + "");
-    	System.out.println(modelA.getField5().toString() + "");
         assertTrue("Field 4 result value not equals", modelB.getField4().toString().equals(modelA.getField4().toString()));
         assertTrue("Field 5 result value not equals", modelB.getField5().equals(modelA.getField5()));
     }
