@@ -13,12 +13,12 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 public class GsonLocalDateTimeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime>  {
-	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss");
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss.SSSSSSSSS");
 	
 	public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 			throws JsonParseException {
 		return LocalDateTime.parse(json.getAsString(),
-	            DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss"));
+	            DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss.SSSSSSSSS"));
 	}
 
 	public JsonElement serialize(LocalDateTime src, Type typeOfSrc, JsonSerializationContext context) {

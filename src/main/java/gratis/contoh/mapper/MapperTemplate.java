@@ -9,44 +9,58 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import lombok.Data;
-
-@Data
 public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 	
 	private Class<T> originClass;
 	private Class<Z> destinationClass;
 	private List<FieldMapper> fields;
+	
 	private Gson gson = new GsonBuilder()
 			.registerTypeAdapter(Date.class, new GsonDateAdapter())
 			.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeAdapter())
 		    .create();
 	
-	public MapperTemplate(
-			Class<T> originClass,
-			Class<Z> destinationClass,
-			FieldMapper... fieldMapper) {
-		
-		this.originClass = originClass;
-		this.destinationClass = destinationClass;
+	public MapperTemplate(Class<T> originClass, Class<Z> destinationClass, FieldMapper... fieldMapper) {
+		setOriginClass(originClass);
+		setDestinationClass(destinationClass);
 		constructFieldMapper(fieldMapper);
-		
+	}
+	
+	public Class<T> getOriginClass() {
+		return this.originClass;
+	}
+	
+	public Class<Z> getDestinationClass() {
+		return this.destinationClass;
+	}
+	
+	public List<FieldMapper> getFields() {
+		return this.fields;
+	}
+	
+	public void setOriginClass(Class<T> originClass) {
+		this.originClass = originClass;
+	}
+	
+	public void setDestinationClass(Class<Z> destinationClass) {
+		this.destinationClass = destinationClass;
+	}
+	
+	public void setFields(List<FieldMapper> fields) {
+		this.fields = fields;
 	}
 	
 	private void constructFieldMapper(FieldMapper... fieldMapper) {
-		
-		this.fields = new ArrayList<>();
+		List<FieldMapper> fieldsConstructed = new ArrayList<>();
 		
 		for (int i = 0; i < fieldMapper.length; i++) {
-			this.fields.add(fieldMapper[i]);
+			fieldsConstructed.add(fieldMapper[i]);
 		}
 		
+		setFields(fieldsConstructed);
 	}
 	
-	public Z convert( 
-			Object source, 
-			FieldNamingPolicy... namingPolicy) {
-		
+	public Z convert(Object source, FieldNamingPolicy... namingPolicy) {
 		reformGson(namingPolicy);
 		
 		String json = gson.toJson(source);
@@ -54,14 +68,10 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 		Z res = gson.fromJson(json, destinationClass);
 		
 		return res;
-		
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Z> convertList(
-			Object source, 
-			FieldNamingPolicy... namingPolicy) {
-		
+	public List<Z> convertList(Object source, FieldNamingPolicy... namingPolicy) {
 		List<Z> res = new ArrayList<Z>();
 		
 		reformGson(namingPolicy);
@@ -75,11 +85,9 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 		}
 		
 		return res;
-		
 	}
 	
 	private void reformGson(FieldNamingPolicy... namingPolicy) {
-		
 		if (namingPolicy.length > 0) {
 			gson = new GsonBuilder()
 					.registerTypeAdapter(Date.class, new GsonDateAdapter())
@@ -87,7 +95,6 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 				    .setFieldNamingPolicy(namingPolicy[0])
 				    .create();
 		}
-		
 	}
 	
 	private String reformJson(String json) {
@@ -96,7 +103,7 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 		for (FieldMapper fieldMapper : fields) {
 			res = res.replace(fieldMapper.getFrom(), fieldMapper.getTo());
 		}
-		
+
 		return res;
 	}
 

@@ -25,6 +25,7 @@ public class GsonDateAdapter implements JsonSerializer<Date>, JsonDeserializer<D
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
 		return new Date(temp.getTime());
     }
 
