@@ -14,7 +14,7 @@
   <distributionManagement>
     <repository>
       <id>contoh-gratis</id>
-      <url>https://nexus.contoh.gratis/repository/maven-release/</url>
+      <url>https://nexus.contoh.gratis/repository/maven-releases/</url>
     </repository>
   </distributionManagement>
 
