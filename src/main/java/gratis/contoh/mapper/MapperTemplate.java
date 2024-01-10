@@ -87,6 +87,14 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 		return res;
 	}
 	
+	public String getOriginAsJsonString(T object) {
+		return gson.toJson(object);
+	}
+	
+	public String getDestinationAsJsonString(Z object) {
+		return gson.toJson(object);
+	}
+	
 	private void reformGson(FieldNamingPolicy... namingPolicy) {
 		if (namingPolicy.length > 0) {
 			gson = new GsonBuilder()
