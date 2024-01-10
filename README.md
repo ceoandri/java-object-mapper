@@ -19,7 +19,7 @@
 <dependency>
 	<groupId>gratis.contoh</groupId>
 	<artifactId>mapper</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 </dependency>
 ```
 3. Run `mvn clean install` inside your project directory
