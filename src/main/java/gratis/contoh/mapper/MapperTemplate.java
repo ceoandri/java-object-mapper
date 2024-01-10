@@ -60,7 +60,7 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 		setFields(fieldsConstructed);
 	}
 	
-	public Z convert(Object source, FieldNamingPolicy... namingPolicy) {
+	public Z convert(T source, FieldNamingPolicy... namingPolicy) {
 		reformGson(namingPolicy);
 		
 		String json = gson.toJson(source);
@@ -71,7 +71,7 @@ public class MapperTemplate<T, Z> implements ObjectMapper<T, Z> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Z> convertList(Object source, FieldNamingPolicy... namingPolicy) {
+	public List<Z> convertList(List<T> source, FieldNamingPolicy... namingPolicy) {
 		List<Z> res = new ArrayList<Z>();
 		
 		reformGson(namingPolicy);
