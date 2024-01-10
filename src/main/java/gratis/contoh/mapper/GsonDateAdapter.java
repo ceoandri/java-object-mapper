@@ -15,7 +15,7 @@ import com.google.gson.JsonSerializer;
 
 public class GsonDateAdapter implements JsonSerializer<Date>, JsonDeserializer<Date> {
 	
-	SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy");
+	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public Date deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         String dString = jsonElement.getAsString();
